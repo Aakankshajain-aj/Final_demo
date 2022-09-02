@@ -1,14 +1,14 @@
 pipeline{
    agent any
- //  environment{
-   //   dockerHome = tool 'My_docker'
-	//  mavenHome = tool 'My_maven'
-	//  PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
-  // }
+//   environment{
+//      dockerHome = tool 'My_docker'
+// 	 mavenHome = tool 'My_maven'
+// 	 PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
+//   }
     stages{
-//       stage('Build') {
-//             steps {
-//                 // Get some code from a GitHub repository
+     stage('Build') {
+             steps {
+                // Get some code from a GitHub repository
 //                 git 'https://github.com/Aakankshajain-aj/Final_demo.git'
 // 	    }		    
 //       }
@@ -44,7 +44,7 @@ pipeline{
 		    steps{
 			    script{
 				    //docker scan --accept-license --version
-				    docker scan currency-exchange:${env.BUILD_TAG}
+				   // docker scan currency-exchange:${env.BUILD_TAG}
 				    
 				    docker.withRegistry(' ','dockerhub'){
 				    dockerImage.push();
