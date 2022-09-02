@@ -43,13 +43,13 @@ pipeline{
 	    stage('Docker Push Image'){
 		    steps{
 			    script{
-				    docker scan --accept-license --version
+				    //docker scan --accept-license --version
 				    docker.withRegistry(' ','dockerhub'){
 				    dockerImage.push();
 				    dockerImage.push('latest');
 				    }
 			    }
 		    }
-	    }
+	    }    
   }
 }
