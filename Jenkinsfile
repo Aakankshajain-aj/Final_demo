@@ -5,7 +5,7 @@ pipeline{
 	//  mavenHome = tool 'My_maven'
 	//  PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
   // }
-//    stages{
+    stages{
 //       stage('Build') {
 //             steps {
 //                 // Get some code from a GitHub repository
@@ -16,7 +16,7 @@ pipeline{
 	    steps{
 		   //bat "mvn --version"
 		    bat "docker version"
-		}
+		 }
 	 }
 // 	 stage('Compile'){
 // 	    steps{
@@ -34,5 +34,5 @@ pipeline{
 // 		 }
 // 	 }
 	
-   }
+  }
 }
