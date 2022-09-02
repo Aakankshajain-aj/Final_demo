@@ -33,6 +33,22 @@ pipeline{
 // 		   bat "mvn package"
 // 		 }
 // 	 }
-	
+	 stage('Docker Image'){
+		  steps{
+			  script{
+				  docker_image = docker.build("aakankshasamota/currency-exchange:${env.BUILD_TAG}")
+			    }
+		    }
+	    }
+	    stage('Docker Push Image'){
+		    steps{
+			    script{
+				    docker.withRegistry(' ','dockerhub'){
+				    dockerImage.push();
+				    dockerImage.push('latest');
+				    }
+			    }
+		    }
+	    }
   }
 }
