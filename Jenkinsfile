@@ -1,30 +1,36 @@
 pipeline{
    agent any
-   environment{
-      dockerHome = tool 'My_docker'
-	  mavenHome = tool 'My_maven'
-	  PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
-   }
+ //  environment{
+   //   dockerHome = tool 'My_docker'
+	//  mavenHome = tool 'My_maven'
+	//  PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
+  // }
    stages{
+      stage('Build') {
+            steps {
+                // Get some code from a GitHub repository
+                git 'https://github.com/Aakankshajain-aj/MY_First_demo1.git'
+	    }		    
+      }
      stage('Checkout'){
 	    steps{
-		   sh "mvn --version"
-		   sh "docker version"
+		   bat "mvn --version"
+		 //  bat "docker version"
 		}
 	 }
 	 stage('Compile'){
 	    steps{
-		   sh "mvn clean compile"
+		   bat "mvn clean"
 		}
 	 }
 	 stage('Test'){
 	     steps{
-		    sh "mvn test"
+		    bat "mvn test"
 		 }
 	 }
 	 stage('Package'){
 	     steps{
-		   sh "mvn package -Dskip Tests"
+		   bat "mvn package -Dskip Tests"
 		 }
 	 }
    }
