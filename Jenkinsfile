@@ -9,7 +9,7 @@ pipeline{
       stage('Build') {
             steps {
                 // Get some code from a GitHub repository
-                git 'https://github.com/Aakankshajain-aj/MY_First_demo1.git'
+                git 'https://github.com/Aakankshajain-aj/Final_demo.git'
 	    }		    
       }
      stage('Checkout'){
