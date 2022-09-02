@@ -30,7 +30,7 @@ pipeline{
 	 }
 	 stage('Package'){
 	     steps{
-		   bat "mvn package -Dskip Tests"
+		   bat "mvn package"
 		 }
 	 }
    }
