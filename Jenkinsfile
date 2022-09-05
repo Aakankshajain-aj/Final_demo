@@ -1,10 +1,5 @@
 pipeline{
    agent any
-//   environment{
-//      dockerHome = tool 'My_docker'
-// 	 mavenHome = tool 'My_maven'
-// 	 PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
-//   }
     stages{
      stage('Build') {
              steps {
@@ -43,8 +38,8 @@ pipeline{
 	    stage('Docker Push Image'){
 		    steps{
 			    script{
-				    //docker scan --accept-license --version
-				   // docker scan currency-exchange:${env.BUILD_TAG}
+				    // docker scan --accept-license --version
+				    // docker scan currency-exchange:${env.BUILD_TAG}
 				    docker.withRegistry(' ','dockerhub'){
 				    dockerImage.push();
 				    dockerImage.push('latest');
