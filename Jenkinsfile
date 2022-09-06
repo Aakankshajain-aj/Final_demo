@@ -35,17 +35,17 @@ pipeline{
 			    }
 		    }
 	    }
-	    stage('Docker Push Image'){
-		    steps{
-			    script{
- 				    //docker scan --accept-license --version
-				    docker push currency-exchange"{$env.BUILD_TAG}"
-				    docker.withRegistry(' ','dockerhub'){
-				    dockerImage.push();
-				    dockerImage.push('latest');
-				    }
-			    }
-		    }
+// 	    stage('Docker Push Image'){
+// 		    steps{
+// 			    script{
+//  				    //docker scan --accept-license --version
+// 				    //docker scan currency-exchange"{$env.BUILD_TAG}"
+// 				    docker.withRegistry(' ','dockerhub'){
+// 				    dockerImage.push();
+// 				    dockerImage.push('latest');
+// 				    }
+// 			    }
+// 		    }
 	    }    
   }
 }
