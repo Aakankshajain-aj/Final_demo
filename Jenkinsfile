@@ -1,4 +1,5 @@
-pipeline{
+def docker_url = "https://hub.docker.com/repository/docker/aakankshasamota/finaldemo/general"
+pipeline{	
    agent any
     stages{
      stage('Build') {
