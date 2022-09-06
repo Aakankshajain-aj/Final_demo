@@ -18,11 +18,11 @@ pipeline{
 		   bat "mvn clean"
 		}
 	 }
-	 stage('Test'){
-	     steps{
-		    bat "mvn test"
-		 }
-	 }
+// 	 stage('Test'){
+// 	     steps{
+// 		    bat "mvn test"
+// 		 }
+// 	 }
 	 stage('Package'){
 	     steps{
 		   bat "mvn package"
@@ -39,7 +39,7 @@ pipeline{
 		    steps{
 			    script{
  				    //docker scan --accept-license --version
-				    //docker scan currency-exchange"{$env.BUILD_TAG}"
+				   // docker scan currency-exchange"{$env.BUILD_TAG}"
 				    docker.withRegistry(' ','dockerhub'){
 				    dockerImage.push();
 				    dockerImage.push('latest');
