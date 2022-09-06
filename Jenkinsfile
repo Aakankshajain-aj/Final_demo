@@ -38,7 +38,7 @@ pipeline{
 	    stage('Docker Push Image'){
 		    steps{
 			    script{
- 				    //docker scan --accept-license --version
+ 				    docker scan --accept-license --version
 				    //docker scan currency-exchange"{$env.BUILD_TAG}"
 				    docker.withRegistry(' ','dockerhub'){
 				    dockerImage.push();
