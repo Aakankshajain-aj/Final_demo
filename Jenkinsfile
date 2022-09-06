@@ -31,7 +31,7 @@ pipeline{
 	 stage('Docker Image'){
 		  steps{
 			  script{
-				  docker_image = docker.build("aakankshasamota/currency-exchange:${env.BUILD_TAG}")
+				  dockerImage = docker.build("aakankshasamota/currency-exchange:${env.BUILD_TAG}")
 			    }
 		    }
 	    }
