@@ -45,7 +45,9 @@ pipeline{
 				    //dockerImage.push();
 				    //dockerImage.push('latest');
 				    docker.withRegistry('https://hub.docker.com/repository/docker/aakankshasamota/finaldemo', 'dockerhub') {            
-                                    app.push("${env.BUILD_NUMBER}")  
+                                    dockerImage.push("${env.BUILD_NUMBER}");
+			            dockerImage.push('latest');
+					    
 				    }
 			    }
 		    }
