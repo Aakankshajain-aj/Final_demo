@@ -1,4 +1,4 @@
-def docker_url = "https://hub.docker.com/repository/docker/aakankshasamota/finaldemo/general"
+//def docker_url = "https://hub.docker.com/repository/docker/aakankshasamota/finaldemo/general"
 pipeline{	
    agent any
     stages{
@@ -41,9 +41,11 @@ pipeline{
 			    script{
  				    //docker scan --accept-license --version
 				   // docker scan currency-exchange"{$env.BUILD_TAG}"
-				    docker.withRegistry(' ','dockerhub'){
-				    dockerImage.push();
-				    dockerImage.push('latest');
+				   // docker.withRegistry(' ','dockerhub'){
+				    //dockerImage.push();
+				    //dockerImage.push('latest');
+				    docker.withRegistry('https://registry.hub.docker.com', 'git') {            
+                                    app.push("${env.BUILD_NUMBER}")  
 				    }
 			    }
 		    }
